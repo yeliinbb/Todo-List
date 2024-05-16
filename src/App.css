@@ -9,3 +9,8 @@
   padding: 15px;
   box-sizing: border-box;
 } */
+
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+}

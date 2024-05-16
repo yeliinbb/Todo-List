@@ -1,12 +1,15 @@
 import { useState } from "react";
-import Header from "./Header";
-import Form from "./Form";
-import "./App.css";
-import ToDoList from "./ToDoList";
+import Header from "./components/Header";
+import Form from "./components/Form";
+// import "./App.css";
+import ToDoList from "./components/ToDoList";
 // import "./Reset.css";
 
 const App = () => {
-  const initialState = [{ id: 0, title: "", body: "", isDone: false }];
+  const initialState = [
+    { id: 0, title: "todo #1", body: "todo #1", isDone: false },
+    { id: 1, title: "todo #2", body: "todo #2", isDone: true },
+  ];
   const [toDos, setTodos] = useState(initialState);
 
   const style = {
