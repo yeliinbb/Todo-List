@@ -1,4 +1,4 @@
-const Item = ({ toDos, setTodos, listIsDone }) => {
+const ToDoItem = ({ toDos, setTodos, listIsDone }) => {
   const removeToDo = (id) => {
     // 선택한 id를 제외한 나머지 배열만 새롭게 넣어줌.
     const delToDos = toDos.filter((todo) => {
@@ -21,20 +21,20 @@ const Item = ({ toDos, setTodos, listIsDone }) => {
   const { id, title, body, isDone } = toDos;
   return (
     <>
-      <div style={{ width: "100%", height: "110px" }}>
-        <h3 style={{ fontWeight: "600", fontSize: "20px" }}>{title}</h3>
-        <h4 style={{ fontWeight: "500", fontSize: "15px" }}>{body}</h4>
+      <div className="todo-content__box">
+        <h3 className="todo-title">{title}</h3>
+        <h4 className="todo-content">{body}</h4>
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <button style={{ width: "130px", backgroundColor: "black", color: "white" }} onClick={() => removeToDo(id)}>
+      <div className="btn__box">
+        <button className="remove-btn" onClick={() => removeToDo(id)}>
           Delete
         </button>
         <button
           style={{
-            width: "130px",
             border: listIsDone ? "2px solid black" : "2px solid #FF6347",
             color: listIsDone ? "black" : "#FF6347",
           }}
+          className="complete-cancel-btn"
           onClick={() => {
             handleToggleButton(id);
           }}
@@ -46,4 +46,4 @@ const Item = ({ toDos, setTodos, listIsDone }) => {
   );
 };
 
-export default Item;
+export default ToDoItem;
