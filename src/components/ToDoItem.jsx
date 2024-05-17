@@ -15,13 +15,13 @@ const ToDoItem = ({ todo, setTodos }) => {
     <li
       key={id}
       style={{
-        border: isDone ? "3px solid green" : "3px solid black",
+        border: isDone ? "2.5px solid green" : "2.5px solid #FF6347",
       }}
       className="todo-list"
     >
       <div className="todo-content__box">
         <h3 className="todo-title">{title}</h3>
-        <h4 className="todo-content">{body}</h4>
+        <p className="todo-content">{body}</p>
       </div>
       <div className="btn__box">
         <button className="remove-btn btn" onClick={removeToDo}>
@@ -29,8 +29,7 @@ const ToDoItem = ({ todo, setTodos }) => {
         </button>
         <button
           style={{
-            border: isDone ? "2px solid black" : "2px solid #FF6347",
-            color: isDone ? "black" : "#FF6347",
+            backgroundColor: isDone ? "green" : "#FF6347",
           }}
           className="complete-cancel-btn btn"
           onClick={handleToggleButton}
