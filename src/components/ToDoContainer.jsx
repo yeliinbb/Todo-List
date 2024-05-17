@@ -1,9 +1,7 @@
 import { useState } from "react";
 import Header from "./Header";
-import ToDoList from "./ToDoList";
 import ToDoForm from "./ToDoForm";
-// import "./Reset.css";
-// import "./App.css";
+import ToDoList from "./ToDoList";
 
 const ToDoContainer = () => {
   const initialState = [
@@ -12,13 +10,17 @@ const ToDoContainer = () => {
   ];
   const [toDos, setTodos] = useState(initialState);
 
+  // 다른 값의 데이터 전달해주기
+  const workingToDos = toDos.filter((todo) => !todo.isDone); // isDone이 false인 것만 담긴 배열
+  const doneToDos = toDos.filter((todo) => todo.isDone); // isDone이 true인 것만 담긴 배열
+
   return (
     <div className="todo-container">
       <Header />
-      <ToDoForm toDos={toDos} setTodos={setTodos} />
+      <ToDoForm setTodos={setTodos} />
       <div className="todo-list__wrapper">
-        <ToDoList toDos={toDos} setTodos={setTodos} listIsDone={false} />
-        <ToDoList toDos={toDos} setTodos={setTodos} listIsDone={true} />
+        <ToDoList title="Working" toDos={workingToDos} setTodos={setTodos} />
+        <ToDoList title="Done" toDos={doneToDos} setTodos={setTodos} />
       </div>
     </div>
   );

@@ -1,35 +1,27 @@
-import { useState } from "react";
-
-const ToDoForm = ({ toDos, setTodos }) => {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-
-  const handleTitle = (event) => {
-    setTitle(event.target.value);
-  };
-
-  const handleBody = (event) => {
-    setBody(event.target.value);
-  };
-
+const ToDoForm = ({ setTodos }) => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
-    if (title === "" || body === "") {
+    // 비제어 컴포넌트로 submit 이벤트 관리
+    const formData = new FormData(event.target);
+    const title = formData.get("title");
+    const body = formData.get("body");
+
+    if (!title.trim() || !body.trim()) {
       alert("제목과 내용이 입력되지 않았습니다.");
       return;
     }
 
-    const newToDo = {
+    const nextToDo = {
       id: Date.now(),
-      title: title,
-      body: body,
+      title,
+      body,
       isDone: false,
     };
-
-    setTodos([...toDos, newToDo]);
-    setTitle("");
-    setBody("");
+    // 기존의 값을 가져와서 변경시켜주기 위해 setTodos안에 콜백함수 넣어주기
+    setTodos((prevToDos) => [nextToDo, ...prevToDos]);
+    // submit 후 title과 content 인풋 창 비워주기
+    event.target.reset();
   };
 
   return (
@@ -39,13 +31,13 @@ const ToDoForm = ({ toDos, setTodos }) => {
           <label htmlFor="title">
             <strong>Title</strong>
           </label>
-          <input className="input" id="title" type="text" value={title} onChange={handleTitle} />
+          <input id="title" type="text" name="title" />
         </div>
         <div className="input-box">
           <label htmlFor="content">
             <strong>Content</strong>
           </label>
-          <input className="input" id="content" type="text" value={body} onChange={handleBody} />
+          <input id="content" type="text" name="body" />
         </div>
       </div>
       <button className="form-button" type="submit">

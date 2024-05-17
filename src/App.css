@@ -1,4 +1,169 @@
+@import "./Reset.css";
+
 #root {
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 2rem;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.layout {
+  max-width: 1200px;
+  min-width: 800px;
+  margin: 0 auto; /* 블럭요소 main 가운데 정렬 방식 */
+}
+
+.header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header > h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.todo-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0 auto; */
+}
+
+.todo-list__wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 40px;
+}
+
+.form {
+  width: 100%;
+  height: 90px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ebebeb;
+  padding: 15px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.input__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.input-box {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.input-box > label {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+#title,
+#content {
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+}
+
+.form-button {
+  background-color: green;
+  color: white;
+  width: 60px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.todo-list__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+section {
+  height: fit-content;
+}
+
+.list-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.todo-list__box {
+  display: grid;
+  /* gap: 30px; */
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 250px;
+  justify-content: center;
+}
+
+.todo-list {
+  justify-self: center;
+  width: 350px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.todo-content__box {
+  width: 100%;
+  height: 110px;
+}
+
+.todo-title {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.todo-content {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.btn__box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  width: 155px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.remove-btn {
+  background-color: black;
+  color: white;
 }

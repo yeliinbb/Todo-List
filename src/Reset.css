@@ -2,11 +2,25 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-/* @import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
+
+/* @import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap");
 
 * {
-  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+} */
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html,
@@ -97,8 +111,9 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-/* article,
+article,
 aside,
 details,
 figcaption,
@@ -133,9 +148,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-*/
 
-/* button {
+button {
   background: inherit;
   border: none;
   box-shadow: none;
@@ -143,7 +157,7 @@ table {
   padding: 0;
   overflow: visible;
   cursor: pointer;
-} */
+}
 
 /* input 기본 스타일 초기화 */
 input {

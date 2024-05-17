@@ -1,27 +1,13 @@
 import ToDoItem from "./ToDoItem";
 
-const ToDoList = ({ toDos, listIsDone }) => {
+const ToDoList = ({ title, toDos, setTodos }) => {
   return (
     <section>
-      <h2>{listIsDone ? "Done" : "Working"}</h2>
-      <ul className="todo-list__wrapper">
-        {toDos
-          .filter((todo) => {
-            return todo.isDone === listIsDone;
-          })
-          .map((todo) => {
-            return (
-              <li
-                key={todo.id}
-                style={{
-                  border: listIsDone ? "3px solid green" : "3px solid black",
-                }}
-                className="todo-list"
-              >
-                <ToDoItem />
-              </li>
-            );
-          })}
+      <h2 className="list-title">{title}</h2>
+      <ul className="todo-list__box">
+        {toDos.map((todo) => (
+          <ToDoItem key={todo.id} todo={todo} setTodos={setTodos} />
+        ))}
       </ul>
     </section>
   );
