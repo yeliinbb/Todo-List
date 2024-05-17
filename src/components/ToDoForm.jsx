@@ -1,3 +1,5 @@
+import uuid from "react-uuid";
+
 const ToDoForm = ({ setTodos }) => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
@@ -13,7 +15,7 @@ const ToDoForm = ({ setTodos }) => {
     }
 
     const nextToDo = {
-      id: Date.now(),
+      id: uuid(),
       title,
       body,
       isDone: false,
